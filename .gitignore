@@ -1,2 +1,7 @@
 .idea
 *.pyc
+.DS_Store
+*.pyc
+__pycache__
+prefs.plist
+lib
