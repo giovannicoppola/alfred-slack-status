@@ -185,17 +185,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>B07DCF63-CCD7-4109-86C2-2D55DFBF6745</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>E90AF384-353E-4718-8699-C138C7E64A08</string>
+				<string>E666C52F-3E5F-4D21-9FDA-A0303045CAD3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -547,6 +537,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>E666C52F-3E5F-4D21-9FDA-A0303045CAD3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>42247D83-2DA0-4F8E-998D-A78B9782F6F8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>E90AF384-353E-4718-8699-C138C7E64A08</key>
 		<array>
 			<dict>
@@ -564,7 +567,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>0948D243-E5DB-409D-842B-D2D06F267E82</string>
+				<string>105E954A-4799-4859-8980-34EBC65037FB</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -996,15 +999,13 @@ python3 slack_status.py "$text" "$icon" $minutes $dnd $close</string>
 				<key>variables</key>
 				<dict>
 					<key>default</key>
-					<string>10</string>
-					<key>dnd</key>
-					<string></string>
+					<string>{var:BRB_length}</string>
 					<key>icon</key>
-					<string>":brb:"</string>
+					<string>{var:BRB_emoji}</string>
 					<key>minutes</key>
 					<string>{query}</string>
 					<key>text</key>
-					<string>BRB</string>
+					<string>{var:BRB_text}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -1125,15 +1126,13 @@ end alfred_script</string>
 				<key>variables</key>
 				<dict>
 					<key>default</key>
-					<string>45</string>
-					<key>dnd</key>
-					<string></string>
+					<string>{var:FOCUS_length}</string>
 					<key>icon</key>
-					<string>:male-technologist:</string>
+					<string>{var:FOCUS_emoji}</string>
 					<key>minutes</key>
 					<string>{query}</string>
 					<key>text</key>
-					<string>DND: working</string>
+					<string>{var:FOCUS_text}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -1212,15 +1211,15 @@ end alfred_script</string>
 				<key>variables</key>
 				<dict>
 					<key>default</key>
-					<string>45</string>
+					<string>{var:DND_length}</string>
 					<key>dnd</key>
 					<string>--dnd</string>
 					<key>icon</key>
-					<string>:no_bell:</string>
+					<string>{var:DND_emoji}</string>
 					<key>minutes</key>
 					<string>{query}</string>
 					<key>text</key>
-					<string>DND</string>
+					<string>{var:DND_text}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -1301,17 +1300,17 @@ end alfred_script</string>
 				<key>variables</key>
 				<dict>
 					<key>default</key>
-					<string>45</string>
+					<string>{var:AFK_length}</string>
 					<key>dnd</key>
 					<string>--dnd</string>
 					<key>icon</key>
-					<string>:afk:</string>
+					<string>{var:AFK_emoji}</string>
 					<key>logname</key>
 					<string>afk</string>
 					<key>minutes</key>
 					<string>{query}</string>
 					<key>text</key>
-					<string>AFK</string>
+					<string>{var:AFK_text}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -1325,7 +1324,7 @@ end alfred_script</string>
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>keyword</key>
 				<string>ssmeeting</string>
 				<key>subtext</key>
@@ -1352,17 +1351,15 @@ end alfred_script</string>
 				<key>variables</key>
 				<dict>
 					<key>default</key>
-					<string>30</string>
-					<key>dnd</key>
-					<string>--dnd</string>
+					<string>{var:MEETING_length}</string>
 					<key>icon</key>
-					<string>:virtual-meeting:</string>
+					<string>{var:MEETING_emoji}</string>
 					<key>logname</key>
 					<string>meeting</string>
 					<key>minutes</key>
 					<string>{query}</string>
 					<key>text</key>
-					<string>In a Meeting</string>
+					<string>{var:MEETING_text}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -1428,23 +1425,53 @@ python3 $logscript $logname</string>
 				<key>variables</key>
 				<dict>
 					<key>default</key>
-					<string>90</string>
+					<string>{var:LUNCH_length}</string>
 					<key>dnd</key>
 					<string></string>
 					<key>icon</key>
-					<string>:chef-brb:</string>
+					<string>{var:LUNCH_emoji}</string>
 					<key>logname</key>
 					<string>lunch</string>
 					<key>minutes</key>
 					<string>{query}</string>
 					<key>text</key>
-					<string>Food time</string>
+					<string>{var:LUNCH_text}</string>
 				</dict>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>43689A2A-F885-43ED-9EE0-68FD29A87E43</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>default</key>
+					<string>0</string>
+					<key>dnd</key>
+					<string>--reset</string>
+					<key>icon</key>
+					<string></string>
+					<key>logname</key>
+					<string>--last</string>
+					<key>minutes</key>
+					<string></string>
+					<key>text</key>
+					<string></string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>E666C52F-3E5F-4D21-9FDA-A0303045CAD3</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1990,6 +2017,15 @@ python3 $logscript $logname</string>
 			<key>ypos</key>
 			<real>1680</real>
 		</dict>
+		<key>E666C52F-3E5F-4D21-9FDA-A0303045CAD3</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>xpos</key>
+			<real>945</real>
+			<key>ypos</key>
+			<real>1570</real>
+		</dict>
 		<key>E90AF384-353E-4718-8699-C138C7E64A08</key>
 		<dict>
 			<key>note</key>
@@ -2039,7 +2075,386 @@ python3 $logscript $logname</string>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
-	<array/>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>BRB</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Text to show with BRB</string>
+			<key>label</key>
+			<string>BRB text</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>BRB_text</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>:wave:</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>BRB emoji</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>BRB_emoji</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>30</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Default BRB length</string>
+			<key>label</key>
+			<string>BRB length</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>BRB_length</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>DND – working!</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Focus text</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>FOCUS_text</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>:technologist:</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>FOCUS emoji</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>FOCUS_emoji</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>45</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Default focus length</string>
+			<key>label</key>
+			<string>Focus length</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>FOCUS_length</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>DND</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>DND text</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>DND_text</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>:no_bell:</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>DND emoji</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>DND_emoji</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>45</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Default DND length</string>
+			<key>label</key>
+			<string>DND length</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>DND_length</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>AFK</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>AFK text</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>AFK_text</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>:keyboard:</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>AFK emoji</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>AFK_emoji</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>45</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Default AFK length</string>
+			<key>label</key>
+			<string>AFK length</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>AFK_length</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>In a meeting</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Meeting text</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>MEETING_text</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>:handshake:</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Meeting emoji</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>MEETING_emoji</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>30</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Default meeting length</string>
+			<key>label</key>
+			<string>Meeting duration</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>MEETING_length</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>Food time</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Lunch text</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>LUNCH_text</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>:cook:</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Lunch emoji</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>LUNCH_emoji</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>90</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Default lunch length</string>
+			<key>label</key>
+			<string>Lunch length</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>LUNCH_length</string>
+		</dict>
+	</array>
 	<key>variables</key>
 	<dict>
 		<key>logscript</key>
@@ -2050,7 +2465,7 @@ python3 $logscript $logname</string>
 		<string>logscript</string>
 	</array>
 	<key>version</key>
-	<string>0.3.0</string>
+	<string>0.4.0</string>
 	<key>webaddress</key>
 	<string>www.stefanotranquillini.com</string>
 </dict>

@@ -11,17 +11,13 @@ import requests
 from workflow.notify import notify
 
 log = None
-MY_ICON = os.getenv('icon')
+
 
 def convert_minutes_to_epoch(mins):
     future = datetime.datetime.utcnow() + datetime.timedelta(minutes=mins+1)
     epoch = calendar.timegm(future.timetuple())
     return epoch
 
-def loggg(s, *args):
-    if args:
-        s = s % args
-    print(s, file=sys.stderr)
 
 def main(wf):
     log = wf.logger
@@ -40,7 +36,7 @@ def main(wf):
 
     # parse the script's arguments
     args = parser.parse_args(wf.args)
-    loggg (MY_ICON)
+    
     data = {
         "profile": {
             "status_text": args.text,
@@ -98,11 +94,11 @@ def main(wf):
         data = {"presence": "auto"}
         res = requests.post('https://slack.com/api/users.setPresence',
                             params=data, headers=auth)
-        v = Variables(u'arg', WF_RESET=1)
-        if not res.json()['ok']:
-            notify("Error making the call for presence", res.text)
-            print(Variables(u'arg', FAILED=1))
-            return 1
+        v = Variables('arg', WF_RESET=1)
+        # if not res.json()['ok']:
+        #     notify("Error making the call for presence", res.text)
+        #     print(Variables('arg', FAILED=1))
+        #     return 1
 
     # for variable, print only that one, otherwise does not work.
     print(v)
